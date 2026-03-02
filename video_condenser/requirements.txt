@@ -1,0 +1,27 @@
+# Video Condenser dependencies
+# Install: venv\Scripts\Activate.ps1 then pip install -r requirements.txt
+# Requires: Python 3.10+, ffmpeg on PATH
+
+# Whisper (local)
+openai-whisper>=20231117
+
+# Whisper API
+openai>=1.0.0
+
+# Summarization
+transformers>=4.30.0
+torch>=2.0.0
+sentencepiece>=0.1.99
+
+# Embeddings
+sentence-transformers>=2.2.0
+
+# Similarity
+scikit-learn>=1.2.0
+numpy>=1.24.0
+
+# Config / env
+python-dotenv>=1.0.0
+
+# Optional UI
+streamlit>=1.28.0
