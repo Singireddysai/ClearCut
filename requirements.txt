@@ -1,0 +1,13 @@
+ffmpeg-python
+moviepy
+groq
+bert-extractive-summarizer
+sentence-transformers
+pydantic
+python-dotenv
+numpy
+scipy
+scikit-learn
+torch
+pillow
+transformers
