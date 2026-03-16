@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface text-zinc-100 antialiased min-h-screen;
+    font-family: theme("fontFamily.sans");
+  }
+  #root {
+    @apply min-h-screen;
+  }
+}

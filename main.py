@@ -15,19 +15,29 @@ async def process_video(pipeline: Pipeline, video_path: Path):
 
 async def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py <videos_directory>")
+        print("Usage: python main.py <video_file_or_directory>")
         sys.exit(1)
 
-    videos_dir = Path(sys.argv[1])
-    if not videos_dir.is_dir():
-        print(f"Not a directory: {videos_dir}", file=sys.stderr)
+    input_path = Path(sys.argv[1])
+    
+    if not input_path.exists():
+        print(f"Path does not exist: {input_path}", file=sys.stderr)
         sys.exit(1)
 
-    video_files = [f for f in sorted(videos_dir.iterdir()) if f.suffix.lower() in VIDEO_EXTENSIONS]
+    video_files = []
 
-    if not video_files:
-        print(f"No video files found in {videos_dir}")
-        sys.exit(0)
+    if input_path.is_file():
+        if input_path.suffix.lower() in VIDEO_EXTENSIONS:
+            video_files = [input_path]
+        else:
+            print(f"File is not a supported video extension {VIDEO_EXTENSIONS}: {input_path}", file=sys.stderr)
+            sys.exit(1)
+            
+    elif input_path.is_dir():
+        video_files = [f for f in sorted(input_path.iterdir()) if f.suffix.lower() in VIDEO_EXTENSIONS]
+        if not video_files:
+            print(f"No video files found in directory: {input_path}")
+            sys.exit(0)
 
     print(f"Found {len(video_files)} video(s). Running all 3 length options each.\n")
 

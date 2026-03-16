@@ -120,9 +120,11 @@ class Pipeline:
         )
 
         print("--- Step 6: Evaluation ---")
+        google_key = os.getenv("GEMMA_API_KEY") or os.getenv("GOOGLE_API_KEY") or self.gemma_key
         get_metrics(
             original_transcript_path=str(transcript_path),
-            dir=run_dir
+            dir_path=str(run_dir),
+            google_api_key=google_key or "",
         )
 
         print(f"Pipeline Complete: {output_video_path}")

@@ -1,15 +1,13 @@
 ffmpeg-python
-moviepy
 groq
-nltk
 google-genai
-google
+nltk
 sentence-transformers
 pydantic
 python-dotenv
 numpy
 scipy
 scikit-learn
-torch
 pillow
 transformers
+bert-score

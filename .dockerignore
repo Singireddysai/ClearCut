@@ -1,0 +1,31 @@
+# Git and IDE
+.git
+.gitignore
+.cursor
+*.md
+!README.md
+
+# Python
+__pycache__
+*.py[cod]
+*.egg-info
+.eggs
+.pytest_cache
+.mypy_cache
+.env
+.env.*
+venv
+.venv
+
+# Frontend (not needed for backend image)
+frontend/node_modules
+frontend/dist
+frontend/.vite
+frontend/npm-debug.log*
+
+# Workspace data (mounted at runtime)
+workspace
+
+# Misc
+*.csv
+.DS_Store

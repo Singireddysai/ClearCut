@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clearcut"
+version = "0.1.0"
+description = "AI video summarization pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "ffmpeg-python",
+    "groq",
+    "google-genai",
+    "nltk",
+    "sentence-transformers",
+    "pydantic",
+    "python-dotenv",
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "pillow",
+    "transformers",
+    "bert-score",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]

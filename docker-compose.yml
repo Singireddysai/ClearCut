@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GEMMA_API_KEY=${GEMMA_API_KEY}
+      - CLEARCUT_WORKSPACE=/app/workspace
+    volumes:
+      - clearcut_workspace:/app/workspace
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  clearcut_workspace:

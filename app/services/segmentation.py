@@ -7,11 +7,12 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.signal import argrelextrema
 from app.services.he import deduplicate_vision_context
-# Ensure NLTK resources are available
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+# Ensure NLTK resources are available (NLTK 3.9+ uses punkt_tab for sent_tokenize)
+for resource in ("punkt_tab", "punkt"):
+    try:
+        nltk.data.find(f"tokenizers/{resource}")
+    except LookupError:
+        nltk.download(resource)
 
 class TopicProcessor:
     def __init__(self, model_name: str = 'all-MiniLM-L6-v2'):
