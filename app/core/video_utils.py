@@ -29,7 +29,7 @@ class VideoUtils:
         )
         return sorted(str(p) for p in frames_dir.glob("*.jpg"))
 
-    def _merge_adjacent_segments(self, segments: List[Dict[str, float]], threshold: float = 0.5) -> List[Dict[str, float]]:
+    def _merge_adjacent_segments(self, segments: List[Dict[str, float]], threshold: float = 1) -> List[Dict[str, float]]:
         if not segments: return []
         merged = [segments[0]]
         for i in range(1, len(segments)):

@@ -1,7 +1,9 @@
 ffmpeg-python
 moviepy
 groq
-bert-extractive-summarizer
+nltk
+google-genai
+google
 sentence-transformers
 pydantic
 python-dotenv
